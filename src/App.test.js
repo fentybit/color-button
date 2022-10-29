@@ -1,8 +1,19 @@
 import { render, screen } from '@testing-library/react';
+import {logRoles } from '@testing-library/dom'
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText('Learn React');
-  expect(linkElement).toBeInTheDocument();
+test('button has correct initial color', () => {
+    const {container} = render(<App />);
+
+    logRoles(container)
+
+    const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+
+    expect(colorButton).toHaveStyle({backgroundColor: 'red'})
 });
+
+test('button has correct initial test', () => {
+
+})
+
+
